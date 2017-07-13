@@ -128,9 +128,9 @@ if __name__ == '__main__':
 	seqs_train = newSeqs[:int(num_pts * train_size)]
 	seqs_test = newSeqs[int(num_pts * train_size): int(num_pts * (train_size + test_size))]
 	seqs_valid = newSeqs[int(num_pts * (train_size + test_size)):]
-	pickle.dump(seqs_train, open(outFile+'_pids.train', 'wb'), -1)
-	pickle.dump(seqs_test, open(outFile+'_pids.test', 'wb'), -1)
-	pickle.dump(seqs_valid, open(outFile+'_pids.valid', 'wb'), -1)
+	pickle.dump(seqs_train, open(outFile+'_seq.train', 'wb'), -1)
+	pickle.dump(seqs_test, open(outFile+'_seq.test', 'wb'), -1)
+	pickle.dump(seqs_valid, open(outFile+'_seq.valid', 'wb'), -1)
 
 
 	pickle.dump(types, open(outFile+'.types', 'wb'), -1)
