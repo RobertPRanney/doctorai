@@ -14,6 +14,8 @@ import sys
 import pickle
 from datetime import datetime
 
+
+
 def convert_to_icd9(dxStr):
 	if dxStr.startswith('E'):
 		if len(dxStr) > 4: return dxStr[:4] + '.' + dxStr[4:]
@@ -100,7 +102,35 @@ if __name__ == '__main__':
 			newPatient.append(newVisit)
 		newSeqs.append(newPatient)
 
-	pickle.dump(pids, open(outFile+'.pids', 'wb'), -1)
-	pickle.dump(dates, open(outFile+'.dates', 'wb'), -1)
-	pickle.dump(newSeqs, open(outFile+'.seqs', 'wb'), -1)
+
+	num_pts = len(pids)
+
+
+	train_size = 0.7
+	test_size = 0.2
+	valid_size = 0.1
+
+	pids_train = pids[:int(num_pts * train_size)]
+	pids_test = pids[int(num_pts * train_size): int(num_pts * (train_size + test_size))]
+	pids_valid = pids[int(num_pts * (train_size + test_size)):]
+	pickle.dump(pids_train, open(outFile+'_pids.train', 'wb'), -1)
+	pickle.dump(pids_test, open(outFile+'_pids.test', 'wb'), -1)
+	pickle.dump(pids_valid, open(outFile+'_pids.valid', 'wb'), -1)
+
+
+	dates_train = dates[:int(num_pts * train_size)]
+	dates_test = dates[int(num_pts * train_size): int(num_pts * (train_size + test_size))]
+	dates_valid = dates[int(num_pts * (train_size + test_size)):]
+	pickle.dump(dates_train, open(outFile+'_dates.train', 'wb'), -1)
+	pickle.dump(dates_test, open(outFile+'_dates.test', 'wb'), -1)
+	pickle.dump(dates_valid, open(outFile+'_dates.valid', 'wb'), -1)
+
+	seqs_train = newSeqs[:int(num_pts * train_size)]
+	seqs_test = newSeqs[int(num_pts * train_size): int(num_pts * (train_size + test_size))]
+	seqs_valid = newSeqs[int(num_pts * (train_size + test_size)):]
+	pickle.dump(seqs_train, open(outFile+'_pids.train', 'wb'), -1)
+	pickle.dump(seqs_test, open(outFile+'_pids.test', 'wb'), -1)
+	pickle.dump(seqs_valid, open(outFile+'_pids.valid', 'wb'), -1)
+
+
 	pickle.dump(types, open(outFile+'.types', 'wb'), -1)
