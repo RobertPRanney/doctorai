@@ -3,5 +3,8 @@
 *.pids
 *.seqs
 *.types
-*.datess
+*.dates
 *.pem
+*.train
+*.test
+*.valid
