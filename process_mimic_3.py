@@ -113,24 +113,24 @@ if __name__ == '__main__':
 	pids_train = pids[:int(num_pts * train_size)]
 	pids_test = pids[int(num_pts * train_size): int(num_pts * (train_size + test_size))]
 	pids_valid = pids[int(num_pts * (train_size + test_size)):]
-	pickle.dump(pids_train, open(outFile+'_pids.train', 'wb'), -1)
-	pickle.dump(pids_test, open(outFile+'_pids.test', 'wb'), -1)
-	pickle.dump(pids_valid, open(outFile+'_pids.valid', 'wb'), -1)
+	pickle.dump(pids_train, open(outFile+'_pids.train', 'wb'), 2)
+	pickle.dump(pids_test, open(outFile+'_pids.test', 'wb'), 2)
+	pickle.dump(pids_valid, open(outFile+'_pids.valid', 'wb'), 2)
 
 
 	dates_train = dates[:int(num_pts * train_size)]
 	dates_test = dates[int(num_pts * train_size): int(num_pts * (train_size + test_size))]
 	dates_valid = dates[int(num_pts * (train_size + test_size)):]
-	pickle.dump(dates_train, open(outFile+'_dates.train', 'wb'), -1)
-	pickle.dump(dates_test, open(outFile+'_dates.test', 'wb'), -1)
-	pickle.dump(dates_valid, open(outFile+'_dates.valid', 'wb'), -1)
+	pickle.dump(dates_train, open(outFile+'_dates.train', 'wb'), 2)
+	pickle.dump(dates_test, open(outFile+'_dates.test', 'wb'), 2)
+	pickle.dump(dates_valid, open(outFile+'_dates.valid', 'wb'), 2)
 
 	seqs_train = newSeqs[:int(num_pts * train_size)]
 	seqs_test = newSeqs[int(num_pts * train_size): int(num_pts * (train_size + test_size))]
 	seqs_valid = newSeqs[int(num_pts * (train_size + test_size)):]
-	pickle.dump(seqs_train, open(outFile+'_seq.train', 'wb'), -1)
-	pickle.dump(seqs_test, open(outFile+'_seq.test', 'wb'), -1)
-	pickle.dump(seqs_valid, open(outFile+'_seq.valid', 'wb'), -1)
+	pickle.dump(seqs_train, open(outFile+'_seq.train', 'wb'), 2)
+	pickle.dump(seqs_test, open(outFile+'_seq.test', 'wb'), 2)
+	pickle.dump(seqs_valid, open(outFile+'_seq.valid', 'wb'), 2)
 
 
-	pickle.dump(types, open(outFile+'.types', 'wb'), -1)
+	pickle.dump(types, open(outFile+'.types', 'wb'), 2)

@@ -4,7 +4,4 @@
 *.seqs
 *.types
 *.datess
-*.train
-*.test
-*.valid
 *.pem
